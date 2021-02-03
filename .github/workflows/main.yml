@@ -5,7 +5,7 @@ name: s3-depl
 on:
   push:
     branches:
-      - master
+      - main
 
 # Workflow run is made up of one or more jobs and they run in parallel by default
 jobs:
@@ -26,7 +26,7 @@ jobs:
       # This step block installs the node packages and runs the build in the package.json file, 
       # which creates a dist folder in the root directory
       - name: Build React App
-        run: npm install && npm run build
+        run: yarn install && yarn run build
       # This deploys the newly created build to S3 bucket <bucket-name> 
       # (replace <bucket-name> with the name of your S3 bucket. Mine is s3-github-actions)
       - name: Deploy app build to S3 bucket
